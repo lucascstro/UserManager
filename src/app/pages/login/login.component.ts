@@ -12,9 +12,7 @@ export class LoginComponent {
 constructor(private router: Router){}
 
   login(){
-    console.log(this.usarname);
     sessionStorage.setItem('user', this.usarname!);
-
     this.router.navigate(['/home']);
   }
 }
