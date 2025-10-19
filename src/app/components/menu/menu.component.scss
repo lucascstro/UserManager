@@ -1,0 +1,48 @@
+.sidemenu{
+    width: 210px;
+    height: 100vh;
+    min-height: 100vh;
+    display: block;
+    float: left;
+    background-color: var(--primary-color);
+    padding: 10px 0px;
+    box-shadow: 4px 0px 10px 4px rgba(0, 0, 0, 0.3);
+
+    ul{
+        padding: 0;
+    }
+
+    .logo{
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: 4px;
+    }
+
+    li{
+        font-size: 14px;
+        font-weight: 500;
+        color: whitesmoke;
+        padding: 14px 24px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        transition: 0.2s linear all;
+        
+        mat-icon{ margin-right: 14px; font-size: 24 px;}
+
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+    }
+
+    .logout{
+        position: absolute;
+        bottom: 0px;
+        width: 210px;
+    }
+    a{
+        text-decoration: none;
+    }
+}
