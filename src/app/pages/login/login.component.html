@@ -4,10 +4,10 @@
   <form>
     <h1 class="titulo">Login</h1>
     <h2 class="subtitulo">Acesse sua conta</h2>
-    <input class="input-form" type="text" placeholder="Usuário" />
+    <input class="input-form" name="username" type="text" [(ngModel)]="usarname" placeholder="Usuário" />
     <!-- <input class="input-form" type="password" placeholder="Senha" /> -->
 
-    <app-button textButton="Acessar" size="100"></app-button>
+    <app-button textButton="Acessar" size="100" (click)="login()"></app-button>
   </form>
   <p class="footer">Lucas Castro | &copy; 2025</p>
 </div>
