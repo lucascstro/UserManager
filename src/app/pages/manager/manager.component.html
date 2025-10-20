@@ -1,0 +1,113 @@
+<app-menu></app-menu>
+
+<div class="container-fluid pt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="titulo">Cadastro de usuários</h1>
+      <h2 class="subtitulo">
+        Gerência usuários, adicionando, editando e excluindo.
+      </h2>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <app-button
+          class="float-end"
+          textButton="+ Cadastrar"
+          size=""
+        ></app-button>
+
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Digite sua busca"
+            #input
+          />
+        </mat-form-field>
+
+        <table class="mat-elevation-z8" mat-table [dataSource]="dataSource">
+          <!-- Position Column -->
+          <ng-container matColumnDef="firebaseId">
+            <th class="th-table" mat-header-cell *matHeaderCellDef>id.</th>
+            <td class="td-table" mat-cell *matCellDef="let user">
+              {{ user.firebaseId }}
+            </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th class="th-table" mat-header-cell *matHeaderCellDef>Nome</th>
+            <td class="td-table" mat-cell *matCellDef="let user">
+              {{ user.name }}
+            </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="email">
+            <th class="th-table" mat-header-cell *matHeaderCellDef>E-mail</th>
+            <td class="td-table" mat-cell *matCellDef="let user">
+              {{ user.email }}
+            </td>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="sector">
+            <th class="th-table" mat-header-cell *matHeaderCellDef>Setor</th>
+            <td class="td-table" mat-cell *matCellDef="let user">
+              {{ user.sector }}
+            </td>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="role">
+            <th class="th-table" mat-header-cell *matHeaderCellDef>Cargo</th>
+            <td class="td-table" mat-cell *matCellDef="let user">
+              {{ user.role }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="benefits">
+            <th class="th-table" mat-header-cell *matHeaderCellDef>
+              Benefícios
+            </th>
+            <td class="td-table" mat-cell *matCellDef="let user">
+              @if(user.health || user.dentalPlan){
+              <mat-icon class="c-primary">check</mat-icon>
+              } 
+              
+              @if(!user.health || !user.dentalPlan){
+              <mat-icon class="c-error">check</mat-icon>
+              }
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th class="th-table" mat-header-cell *matHeaderCellDef></th>
+            <td class="td-table" mat-cell *matCellDef="let user">
+              <mat-icon class="c-primary">visibility</mat-icon>
+              <mat-icon class="c-primary">edit</mat-icon>
+              <mat-icon class="c-primary">delete</mat-icon>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+          <tr class="mat-row" *matNoDataRow="displayedColumns">
+            <div class="mat-cell no-data" colspan="4">
+              Não foram encontrados dados para a pesquisa: {{ input.value }}
+            </div>
+          </tr>
+        </table>
+
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 20]"
+          showFirstLastButtons
+          aria-label="Seleciona uma página"
+          class="mat-elevation-z8"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

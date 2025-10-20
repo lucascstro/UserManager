@@ -12,7 +12,7 @@ export class UsersService {
   constructor(private database: AngularFirestore) {}
 
     getAllUsers() {
-      return this.database.collection('users', users=>users.orderBy('name')).valueChanges({idfilled: 'firebaseId'}) as Observable<any[]>;
+      return this.database.collection('users', users => users.orderBy('name')).valueChanges({idField: 'firebaseId'}) as Observable<any[]>;
     }
 
     addUser(user: Users){

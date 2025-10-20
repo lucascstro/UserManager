@@ -19,6 +19,12 @@ import { environment } from '../environments/environment.development';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { ManagerComponent } from './pages/manager/manager.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -27,6 +33,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     ButtonComponent,
     HomeComponent,
     MenuComponent,
+    ManagerComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,9 +41,14 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     FormsModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
