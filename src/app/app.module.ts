@@ -25,6 +25,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalViewUserComponent } from './pages/manager/modal-view-user/modal-view-user.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HomeComponent,
     MenuComponent,
     ManagerComponent,
+    ModalViewUserComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatDialogModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [provideAnimationsAsync()],

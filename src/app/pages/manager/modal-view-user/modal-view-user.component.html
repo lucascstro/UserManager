@@ -1,0 +1,38 @@
+<div class="container-fluid pt-3">
+  <mat-icon class="float-end hover" (click)="closeModal()">close</mat-icon>
+
+  <h1 class="titulo">Detalhes</h1>
+  <h2 class="subtitulo">Tenha uma visão mais detalhada deste usuário</h2>
+
+  <div class="row mt-3">
+    <div class="col-6">
+      <h4 class="titulo-informacao">Nome</h4>
+      <p class="informacao">{{ userData?.name }}</p>
+    </div>
+    <div class="col-6">
+      <h4 class="titulo-informacao">E-mail</h4>
+      <p class="informacao">{{ userData?.email }}</p>
+    </div>
+    <div class="col-6">
+      <h4 class="titulo-informacao">Setor</h4>
+      <p class="informacao">{{ userData?.sector }}</p>
+    </div>
+    <div class="col-6">
+      <h4 class="titulo-informacao">Cargo</h4>
+      <p class="informacao">{{ userData?.role }}</p>
+    </div>
+    <div class="col-6">
+      <h4 class="titulo-informacao">Plano de saúde</h4>
+      @if( userData?.healthPlan ){
+      <p class="informacao">{{ userData?.healthPlan }}</p>
+      } @else{
+      <p class="informacao">-</p>
+      }
+    </div>
+    <div class="col-6">
+      <h4 class="titulo-informacao">Plano odontológico</h4>
+      <p class="informacao">{{ userData?.healthPlan }}</p>
+      <p class="informacao">-</p>
+    </div>
+  </div>
+</div>

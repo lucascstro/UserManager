@@ -84,9 +84,9 @@
           <ng-container matColumnDef="actions">
             <th class="th-table" mat-header-cell *matHeaderCellDef></th>
             <td class="td-table" mat-cell *matCellDef="let user">
-              <mat-icon class="c-primary">visibility</mat-icon>
-              <mat-icon class="c-primary">edit</mat-icon>
-              <mat-icon class="c-primary">delete</mat-icon>
+              <mat-icon class="c-primary icone-table hover" (click)="openModalView(user)" >visibility</mat-icon>
+              <mat-icon class="c-primary icone-table hover">edit</mat-icon>
+              <mat-icon class="c-primary icone-table hover ">delete</mat-icon>
             </td>
           </ng-container>
 

@@ -1,9 +1,11 @@
-import { Component, isStandalone, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, Sort } from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
 import { Users } from '../../interfaces/users';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalViewUserComponent } from './modal-view-user/modal-view-user.component';
 
 @Component({
   selector: 'app-manager',
@@ -12,7 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class ManagerComponent {
   dataSource: any;
-  
+
   displayedColumns: string[] = [
     'firebaseId',
     'name',
@@ -28,7 +30,7 @@ export class ManagerComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private userServices: UsersService) {
+  constructor(private userServices: UsersService, private dialog: MatDialog) {
     this.dataSource = new MatTableDataSource<any>(this.listaUsuarios);
   }
 
@@ -64,5 +66,13 @@ export class ManagerComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  openModalView(user: Users) {
+    this.dialog.open(ModalViewUserComponent, {
+      width: '700px',
+      height: '330px',
+      data: user,
+    });
   }
 }
